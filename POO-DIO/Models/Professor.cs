@@ -9,6 +9,7 @@ namespace POO_DIO.Models
     class Professor : Pessoa
     {
         public int Salario { get; set; }
+        public string CursoMinistrado { get; set; }
 
         public override void Apresentar()
         {
