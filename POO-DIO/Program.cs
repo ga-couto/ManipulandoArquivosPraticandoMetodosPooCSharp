@@ -2,6 +2,7 @@
 using POO_DIO.Interfaces;
 using POO_DIO.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace POO_DIO
@@ -21,7 +22,7 @@ namespace POO_DIO
             p1.Apresentar();
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL A ----------------------------------------");
-           
+
             Retangulo r = new Retangulo();
             r.DefinirMedida(20, 20);
 
@@ -45,7 +46,7 @@ namespace POO_DIO
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL D ----------------------------------------");
 
-           Professor p2 = new Professor();
+            Professor p2 = new Professor();
 
             p2.Nome = "Gabriel";
             p2.Idade = 25;
@@ -56,8 +57,8 @@ namespace POO_DIO
 
             Calculadora calcular = new Calculadora();
 
-            Console.WriteLine("Resultado da soma de 2 números: " + calcular.Somar(2,3));
-            Console.WriteLine("Resultado da soma de 3 números: " + calcular.Somar(2, 3,4));
+            Console.WriteLine("Resultado da soma de 2 números: " + calcular.Somar(2, 3));
+            Console.WriteLine("Resultado da soma de 3 números: " + calcular.Somar(2, 3, 4));
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL F ----------------------------------------");
 
@@ -75,7 +76,7 @@ namespace POO_DIO
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL H ----------------------------------------");
 
             ICalculadora calc = new Calculadora();
-            
+
             Console.WriteLine(calc.Somar(1, 1));
 
 
@@ -93,21 +94,21 @@ namespace POO_DIO
 
             arq.ListarArquivosDiretorios(caminhoArq);
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL J ----------------------------------------");
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL J --------------CRIANDO DIRETÓRIO--------------------------");
 
             var caminhoCri = "C:\\TESTE";
-            var caminhoPathCombine = Path.Combine(caminho, "teste 3", "sub teste 3");
+            var caminhoPathCombine = Path.Combine(caminhoCri, "teste 3", "sub teste 3");
 
             FileHelper cri = new FileHelper();
 
-            Console.WriteLine("Criando diretório..."+ caminhoPathCombine);
+            Console.WriteLine("Criando diretório..." + caminhoPathCombine);
             cri.CriarDiretorio(caminhoPathCombine);
             Console.WriteLine("Diretórios criados...");
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL K ------------------DELETAR DIRETÓRIO COM TUDO Q TIVER DENTRO----------------------");
 
             //var caminhoDel = "C:\\TESTE";
-            //var caminhoPathCombineDel = Path.Combine(caminho, "Teste 4");
+            //var caminhoPathCombineDel = Path.Combine(caminhoDel, "Teste 1");
 
             //FileHelper del = new FileHelper();
 
@@ -116,22 +117,70 @@ namespace POO_DIO
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL L --------------CRIAR ARQUIVO E ESCREVER DENTRO DELE--------------------------");
 
-            var caminhoCriArq = "C:\\TESTE";
-            var caminhoPathCombineCriArq = Path.Combine(caminho, "Teste 1");
-            var caminhoArquivo = Path.Combine(caminho, "arquivo-teste.txt");
+            var caminhoCriArq = "C:\\TESTE";            
+            var caminhoArquivo = Path.Combine(caminhoCriArq, "arquivo-teste.txt");
 
             FileHelper criArq = new FileHelper();
 
-            criArq.CriarArquivoTexto(caminhoArquivo,"Olá, teste de escrita no arquivo.");
+            criArq.CriarArquivoTexto(caminhoArquivo, "Olá, teste de escrita no arquivo.");
             Console.WriteLine("Arquivo criado e escrito!");
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL M ----------------------------------------");
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL M ---------------CRIAR ARQUIVO E ESCREVER DENTRO DELE EM STREAM-------------------------");
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL N ----------------------------------------");
+            var caminhoCriArqStream = "C:\\TESTE";
+            var caminhoArquivoString = Path.Combine(caminhoCriArqStream, "arquivo-teste-stream.txt");
+            var ListaString = new List<string>{"Linha 1", "Linha 2", "Linha 3"};
+
+            FileHelper criArqString = new FileHelper();
+
+
+            criArqString.CriarArquivoTextoStream(caminhoArquivoString, ListaString);
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL N ---------------ADICIONAR LINHAS NUM ARQUIVO (STREAM)-------------------------");
+
+            var caminhoCriArqStreamAddTexto = "C:\\TESTE";
+            var caminhoArquivoStream = Path.Combine(caminhoCriArqStreamAddTexto, "arquivo-teste-stream.txt");
+            var ListaString2 = new List<string> { "Linha 1", "Linha 2", "Linha 3" };
+            var ListaString2Continuacao = new List<string> { "Linha 4", "Linha 5", "Linha 6", "Linha 7" };
+
+            FileHelper addArqTexto = new FileHelper();
+
+
+            addArqTexto.CriarArquivoTextoStream(caminhoArquivoStream, ListaString2);
+            addArqTexto.AdicionarTextoStream(caminhoArquivoStream, ListaString2Continuacao);
+
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL O ----------------------------------------");
 
+
+            var caminhoLerArqStream = "C:\\TESTE\\Teste 1";
+            var caminhoLerArquivoStream = Path.Combine(caminhoLerArqStream, "arquivo-teste-stream.txt");
+            
+
+            FileHelper lerArq = new FileHelper();
+
+            lerArq.LerArquivoStream(caminhoLerArquivoStream);
+
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL P ----------------------------------------");
+
+            var caminhoMoverArq = "C:\\TESTE\\Teste 1";
+            var caminhoMoverArq2 = "C:\\TESTE\\Teste 2";
+            var caminhoMoverArquivo = Path.Combine(caminhoMoverArq, "arquivo-teste-stream-mover.txt");
+            var novoCaminhoMoverArquivo = Path.Combine(caminhoMoverArq2, "arquivo-teste-stream-mover-renomeado.txt");
+
+
+            FileHelper movArq = new FileHelper();
+
+            movArq.MoverArquivo(caminhoMoverArquivo, novoCaminhoMoverArquivo);
+
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL Q ----------------------------------------");
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL R ----------------------------------------");
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL S ----------------------------------------");
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL T ----------------------------------------");
 
 
 

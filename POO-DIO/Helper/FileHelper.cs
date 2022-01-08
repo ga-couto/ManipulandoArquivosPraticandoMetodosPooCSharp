@@ -56,6 +56,72 @@ namespace POO_DIO.Helper
 
         }
 
+        public void CriarArquivoTextoStream(string caminho, List<string> conteudo)
+        {
+            using ( var stream = File.CreateText(caminho))
+            {
+                foreach (var linha in conteudo)
+                {
+                    stream.WriteLine(linha);
+                }
+            }
+
+
+        }
+
+        public void AdicionarTexto(string caminho, string conteudo)
+        {
+            File.AppendAllText(caminho, conteudo);
+        }
+
+
+        public void AdicionarTextoStream(string caminho, List<string> conteudo)
+        {
+            using (var stream = File.AppendText(caminho))
+            {
+                foreach (var linha in conteudo)
+                {
+                    stream.WriteLine(linha);
+                }
+            }
+
+
+        }
+
+
+        public void LerArquivo(string caminho)
+        {
+            var conteudo = File.ReadAllLines(caminho);
+
+            foreach (var linha in conteudo)
+            {
+                Console.WriteLine(linha);
+            }
+        }
+
+        public void LerArquivoStream(string caminho)
+        {
+            string linha = string.Empty;
+
+            using (var stream = File.OpenText(caminho))
+            {
+                while ((linha = stream.ReadLine()) != null)
+                {
+                    Console.WriteLine(linha);
+                }
+            }
+        }
+
+        public void MoverArquivo(string caminho, string novoCaminho)
+        {
+            File.Move(caminho, novoCaminho);
+        }
+
+
+
+
+
+
 
     }
 }
