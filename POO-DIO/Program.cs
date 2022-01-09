@@ -161,22 +161,46 @@ namespace POO_DIO
 
             lerArq.LerArquivoStream(caminhoLerArquivoStream);
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL P ----------------------------------------");
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL P -------------MOVER ARQUIVO----------------------");
 
-            var caminhoMoverArq = "C:\\TESTE\\Teste 1";
-            var caminhoMoverArq2 = "C:\\TESTE\\Teste 2";
-            var caminhoMoverArquivo = Path.Combine(caminhoMoverArq, "arquivo-teste-stream-mover.txt");
-            var novoCaminhoMoverArquivo = Path.Combine(caminhoMoverArq2, "arquivo-teste-stream-mover-renomeado.txt");
-
-
-            FileHelper movArq = new FileHelper();
-
-            movArq.MoverArquivo(caminhoMoverArquivo, novoCaminhoMoverArquivo);
+            //var caminhoMoverArq = "C:\\TESTE\\Teste 1";
+            //var caminhoMoverArq2 = "C:\\TESTE\\Teste 2";
+            //var caminhoMoverArquivo = Path.Combine(caminhoMoverArq, "arquivo-teste-stream-mover.txt");
+            //var novoCaminhoMoverArquivo = Path.Combine(caminhoMoverArq2, "arquivo-teste-stream-mover-renomeado.txt");
 
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL Q ----------------------------------------");
+            //FileHelper movArq = new FileHelper();
 
-            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL R ----------------------------------------");
+            //movArq.MoverArquivo(caminhoMoverArquivo, novoCaminhoMoverArquivo);
+
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL Q ----------------COPIAR ARQUIVO------------------------");
+
+            var caminhoCopiarArq = "C:\\TESTE\\Teste 1";
+            var caminhoCopiarArq2 = "C:\\TESTE\\Teste 3";
+            var caminhoCopiarArquivo = Path.Combine(caminhoCopiarArq, "arquivo-teste-copiar.txt");
+            var novoCaminhoCopiarArquivo = Path.Combine(caminhoCopiarArq2, "arquivo-teste-copiar-copiado.txt");
+
+
+            FileHelper copArq = new FileHelper();
+
+            copArq.CopiarArquivo(caminhoCopiarArquivo, novoCaminhoCopiarArquivo, true);
+
+
+
+            Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL R ------------------DELETAR ARQUIVO----------------------");
+
+            //var caminhoDeletarArq = "C:\\TESTE\\Teste 1";
+            //var caminhoDeletarArquivo = Path.Combine(caminhoDeletarArq, "arquivo-teste-deletar.txt");
+
+
+            //FileHelper delArq = new FileHelper();
+
+            //delArq.DeletarArquivo(caminhoDeletarArquivo);
+
+
+
+
 
             Console.WriteLine("---------BARA DE SEPARAÇÃO VISUAL S ----------------------------------------");
 

@@ -117,9 +117,15 @@ namespace POO_DIO.Helper
             File.Move(caminho, novoCaminho);
         }
 
+        public void CopiarArquivo(string caminho, string novoCaminho,bool sobrescrever)
+        {
+            File.Copy(caminho, novoCaminho, sobrescrever);
+        }
 
-
-
+        public void DeletarArquivo(string caminho)
+        {
+            File.Delete(caminho);
+        }
 
 
 
